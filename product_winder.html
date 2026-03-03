@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winder System Detail - (주)세잎클로버</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 공통 스타일 */
+        :root { --cyan: #00AEEF; --magenta: #EC008C; --yellow: #FFD400; --black: #111; --primary: #FFD400; }
+        body { font-family: 'Noto Sans KR', sans-serif; color: #333; margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* Nav */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: var(--black); border-bottom: 2px solid var(--yellow); }
+        .logo img { width: 250px; height: auto; } 
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; margin-left: 30px; }
+        .nav-links a:hover { color: var(--yellow); }
+
+        /* Detail Content */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .product-header { display: flex; gap: 50px; margin-bottom: 80px; align-items: center; }
+        .product-img { flex: 1; text-align: center; background: #f9f9f9; padding: 40px; border-radius: 10px; }
+        .product-img img { max-width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-info { flex: 1; }
+        
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; color: var(--black); }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 30px; font-weight: 300; }
+        .desc { font-size: 1rem; color: #444; margin-bottom: 40px; line-height: 1.8; }
+
+        /* Specs Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #f4f4f4; font-weight: 700; width: 30%; }
+        
+        .btn-back { display: inline-block; padding: 10px 30px; background: #333; color: white; text-decoration: none; border-radius: 4px; margin-top: 50px; }
+        .btn-back:hover { background: var(--black); }
+
+        @media (max-width: 768px) {
+            .product-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="세잎클로버_홈페이지.html"><img src="web_files/logo.png" alt="Logo"></a></div>
+        <div class="nav-links"><a href="세잎클로버_홈페이지.html">Home</a></div>
+    </nav>
+
+    <div class="container">
+        <div class="product-header">
+            <div class="product-img">
+                <img src="web_files/winder.png" alt="Winder System">
+            </div>
+            <div class="product-info">
+                <span style="background:var(--cyan); color:white; padding:5px 10px; font-weight:bold; font-size:0.8rem; border-radius:4px;">FINISHING</span>
+                <h1>Jumbo Winder System</h1>
+                <p class="subtitle">무인 자동화를 위한 필수 시스템</p>
+                <p class="desc">
+                    안정적인 텐션 제어 기술이 적용된 와인더 시스템입니다.<br>
+                    소량 다품종 생산을 위한 미니 점보부터, 10,000m 대량 생산을 위한 A-Frame 점보 와인더까지
+                    고객의 생산 환경에 맞는 최적의 솔루션을 제공합니다.
+                </p>
+            </div>
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Type</th><th>Specification</th></tr>
+            <tr><td>Normal Winder</td><td>Max 500m / 텐션 바 방식 / 소량 생산용</td></tr>
+            <tr><td>Mini Jumbo</td><td>Max 3,000m / 에어 샤프트 방식 / 중량 생산용</td></tr>
+            <tr><td>Jumbo Winder</td><td>Max 10,000m / A-Frame 방식 / 대량 생산용</td></tr>
+            <tr><th>Core Size</th><td>2 inch / 3 inch (Selectable)</td></tr>
+            <tr><th>Speed Control</th><td>자동 속도 동기화 (댄싱 바 시스템)</td></tr>
+            <tr><th>Power</th><td>AC 220V, Single Phase</td></tr>
+        </table>
+
+        <a href="세잎클로버_홈페이지.html" class="btn-back">← 목록으로 돌아가기</a>
+    </div>
+</body>
+</html>

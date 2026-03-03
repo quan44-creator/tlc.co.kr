@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Series Detail - (주)세잎클로버</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 공통 스타일 (메인과 동일) */
+        :root { --cyan: #00AEEF; --magenta: #EC008C; --yellow: #FFD400; --black: #111; --primary: #FFD400; }
+        body { font-family: 'Noto Sans KR', sans-serif; color: #333; margin: 0; padding: 0; line-height: 1.6; }
+        
+        /* Nav (메인과 동일하게 흰색 배경으로 수정) */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: white; border-bottom: 2px solid var(--yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo img { width: 125px; height: auto; } /* 로고 125px */
+        .nav-links a { text-decoration: none; color: #333; font-weight: 600; margin-left: 30px; } /* 글씨 검은색 */
+        .nav-links a:hover { color: var(--cyan); }
+
+        /* Detail Content */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .product-header { display: flex; gap: 50px; margin-bottom: 80px; align-items: center; }
+        .product-img { flex: 1; text-align: center; background: #f9f9f9; padding: 40px; border-radius: 10px; }
+        .product-img img { max-width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-info { flex: 1; }
+        
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; color: var(--black); }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 30px; font-weight: 300; }
+        .desc { font-size: 1rem; color: #444; margin-bottom: 40px; line-height: 1.8; }
+
+        /* Specs Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #f4f4f4; font-weight: 700; width: 30%; }
+
+        /* Winder Info (축소 수정) */
+        .winder-info { 
+            margin-top: 60px; 
+            padding: 20px; /* 패딩 축소 */
+            background: #f8f8f8; /* 배경색 연하게 */
+            border-radius: 8px; 
+            border-left: 3px solid var(--yellow); /* 테두리 축소 */
+            font-size: 0.9rem; /* 전체 글씨 크기 축소 */
+        }
+        .winder-info h3 { 
+            margin-bottom: 10px; 
+            color: #333; 
+            font-size: 1.1rem; /* 제목 크기 축소 */
+        }
+        .winder-img { 
+            text-align: center; 
+            margin-top: 15px; 
+        }
+        .winder-img img { 
+            max-width: 400px; /* 이미지 크기 제한 (너무 크지 않게) */
+            border-radius: 5px; 
+        }
+        
+        .btn-back { display: inline-block; padding: 10px 30px; background: #333; color: white; text-decoration: none; border-radius: 4px; margin-top: 50px; }
+        .btn-back:hover { background: var(--black); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .product-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="세잎클로버_홈페이지.html"><img src="web_files/logo.png" alt="Logo"></a></div>
+        <div class="nav-links"><a href="세잎클로버_홈페이지.html">Home</a></div>
+    </nav>
+
+    <div class="container">
+        <div class="product-header">
+            <div class="product-img">
+                <img src="web_files/printer1.png" alt="M Series">
+            </div>
+            <div class="product-info">
+                <span style="background:var(--yellow); padding:5px 10px; font-weight:bold; font-size:0.8rem; border-radius:4px;">BEST SELLER</span>
+                <h1>M Series (High Speed)</h1>
+                <p class="subtitle">압도적인 가성비와 안정성의 주력 모델</p>
+                <p class="desc">
+                    M 시리즈는 디지털 텍스타일 프린팅의 새로운 기준을 제시합니다.<br>
+                    Epson i3200 헤드를 탑재하여 고해상도 출력과 빠른 속도를 동시에 만족시키며,
+                    특히 10,000m 점보 롤을 지원하는 강력한 피딩 시스템으로 무인 연속 출력이 가능합니다.
+                </p>
+            </div>
+        </div>
+
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Model Name</th><td>M1904 / M1906 / M1908 / M1912 / M1915</td></tr>
+            <tr><th>Print Head</th><td>Epson i3200 (4 / 6 / 8 / 12 / 15 Heads)</td></tr>
+            <tr><th>Max Resolution</th><td>360 x 2400 dpi</td></tr>
+            <tr><th>Max Speed (2 pass)</th><td>
+                M1904: 150㎡/h<br>
+                M1908: 300㎡/h<br>
+                M1912: 450㎡/h
+            </td></tr>
+            <tr><th>Max Print Width</th><td>1900mm</td></tr>
+            <tr><th>Ink Type</th><td>Sublimation Ink (전사 잉크)</td></tr>
+            <tr><th>Feeding System</th><td>10,000m Jumbo Roll Support (Magnetic Linear Motor)</td></tr>
+            <tr><th>RIP Software</th><td>NeoStampa / ErgoSoft / Maintop</td></tr>
+            <tr><th>Power</th><td>AC 220V, 50/60Hz, 3.5KW</td></tr>
+        </table>
+
+        <!-- Winder Option Section (축소됨) -->
+        <div class="winder-info">
+            <h3>[Option] Winder System Specification</h3>
+            <p>모든 프린터 제품에는 생산 환경에 맞춰 아래 3가지 와인더 시스템 중 하나를 선택하여 적용할 수 있습니다.</p>
+            <ul>
+                <li><strong>기본 와인더:</strong> 30~50gsm 기준 100~200m (소량 생산)</li>
+                <li><strong>미니 점보 와인더:</strong> 30~50gsm 기준 1,000~2,000m (중량 생산)</li>
+                <li><strong>점보 와인더:</strong> 30~50gsm 기준 8,000~10,000m (대량 생산 / A-Frame)</li>
+            </ul>
+            <div class="winder-img">
+                <img src="web_files/winder1.png" alt="Winder Options">
+            </div>
+        </div>
+
+        <a href="세잎클로버_홈페이지.html" class="btn-back">← 목록으로 돌아가기</a>
+    </div>
+</body>
+</html>

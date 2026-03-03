@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)세잎클로버 - Three Leaved Clover Co., Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00AEEF;
+            --magenta: #EC008C;
+            --yellow: #FFD400; 
+            --black: #111;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --primary: #FFD400; 
+            --text-dark: #333;
+            --text-light: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: white; 
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--yellow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 로고 크기: 125px */
+        .logo img {
+            width: 125px; 
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333; 
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh; /* 높이를 100vh -> 60vh 로 줄여서 부담 없게 조정 */
+            min-height: 450px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('web_files/printer1.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #333; 
+            color: white;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #ddd;
+            margin-bottom: 50px;
+            font-weight: 300;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--yellow);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: #e6c200;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 212, 0, 0.3);
+        }
+
+        /* Product Gallery */
+        .products {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--black);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            margin: 15px auto 0;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; /* 클릭 가능 표시 */
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--yellow);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 280px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-img-box img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .no-img {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: var(--black);
+            color: var(--yellow);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .specs {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #444;
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .specs li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .specs li::before {
+            content: '•';
+            color: var(--yellow);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Ink Section */
+        .ink-section {
+            background: #f4f4f4;
+            padding: 50px 5%; /* padding을 80px -> 50px로 줄여서 전체 높이 축소 */
+            margin-top: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .ink-text { flex: 1; }
+        
+        .ink-img { 
+            flex: 1; 
+            text-align: center; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* 잉크 사진 크기: 60% */
+        .ink-img img { 
+            max-width: 60%; 
+            border-radius: 10px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background: var(--black);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            color: var(--yellow);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        footer {
+            background: #000;
+            color: #666;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        /* Animation */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .gallery { grid-template-columns: 1fr; }
+            .ink-section { flex-direction: column; text-align: center; }
+            .ink-img img { max-width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="세잎클로버_홈페이지.html"><img src="web_files/logo.png" alt="(주)세잎클로버"></a>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Printers</a>
+            <a href="#ink">Ink & Media</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>High Productivity<br><span>Digital Printing</span> Solutions</h1>
+            <p>압도적인 속도와 정밀함. 대량 생산을 위한 최적의 파트너.<br>
+            Three Leaved Clover Co., Ltd.</p>
+            <a href="#products" class="btn">제품 라인업 확인</a>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+        <div class="section-header">
+            <h2 class="section-title">Industrial Printers</h2>
+            <p class="section-desc">고속 생산과 안정성을 겸비한 최신 M & G 시리즈 라인업</p>
+        </div>
+
+        <div class="gallery">
+            <!-- Product 1: M Series -> 상세페이지 연결 -->
+            <div class="product-item" onclick="location.href='product_m.html'">
+                <div class="product-img-box">
+                    <img src="web_files/printer1.png" alt="M Series Printer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
+                        <span>이미지 준비중 (web_files/printer1.png)</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-badge">Best Seller</div>
+                    <h3 class="product-name">M Series (High Speed)</h3>
+                    <p class="product-desc">
+                        15개 헤드 장착 가능! 압도적인 생산성과 안정성을 자랑하는 주력 모델입니다.
+                        10,000m급 점보 롤도 거뜬히 소화합니다.
+                    </p>
+                    <ul class="specs">
+                        <li><strong>Head:</strong> Epson i3200 (Max 15 Heads)</li>
+                        <li><strong>Speed:</strong> 4pass 610㎡/h (15H 기준)</li>
+                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Product 2: G Series -> 상세페이지 연결 -->
+            <div class="product-item" onclick="location.href='product_g.html'">
+                <div class="product-img-box">
+                    <img src="web_files/printer2.png" alt="G Series Printer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
+                        <span>이미지 준비중 (web_files/printer2.png)</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-badge">Mass Production</div>
+                    <h3 class="product-name">G Series (G20/G30)</h3>
+                    <p class="product-desc">
+                        20개, 30개 헤드의 극한 생산성! 공장형 대량 생산을 위한 플래그십 모델입니다.
+                        24시간 연속 가동에도 흔들림 없는 내구성을 보장합니다.
+                    </p>
+                    <ul class="specs">
+                        <li><strong>Head:</strong> Epson i3200 (20 / 30 Heads)</li>
+                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Product 3: M26 Series (업데이트 완료!) -> 상세페이지 연결 -->
+            <div class="product-item" onclick="location.href='product_itten2687l.html'">
+                <div class="product-img-box">
+                    <img src="web_files/printer3.png" alt="M26 Series" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
+                        <span>이미지 준비중 (web_files/printer3.png)</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-badge">Wide Format</div>
+                    <h3 class="product-name">M26 Series (8/16 Head)</h3>
+                    <p class="product-desc">
+                        광폭 전사 솔루션의 새로운 기준. 
+                        고정밀 스틸 빔과 16헤드의 강력한 성능으로 광폭 출력에서도 압도적인 품질을 제공합니다.
+                    </p>
+                    <ul class="specs">
+                        <li><strong>Head:</strong> Epson i3200 (8 / 16 Heads)</li>
+                        <li><strong>Feature:</strong> 광폭 전사 솔루션</li>
+                        <li><strong>Width:</strong> 2600mm</li>
+                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ink Section -->
+        <div id="ink" class="ink-section">
+            <div class="ink-img">
+                <img src="web_files/ink.png" alt="ALPHA Premium Ink" onerror="this.src='https://via.placeholder.com/400x300?text=ALPHA+INK'">
+            </div>
+            <div class="ink-text">
+                <div class="product-badge">Premium Consumables</div>
+                <h2 style="font-size:2rem; margin-bottom:15px;">ALPHA Premium Sublimation Ink</h2>
+                <p style="margin-bottom:20px; color:#555;">
+                    최상의 발색과 안정성을 보장하는 <strong>ALPHA 프리미엄 전사 잉크</strong>.<br>
+                    엄격한 품질 관리와 친환경 인증을 통해 고객의 신뢰를 얻고 있습니다.
+                </p>
+                <ul class="specs" style="background:white; border:1px solid #ddd;">
+                    <li><strong>High Concentration:</strong> 고농도 안료 사용으로 깊고 선명한 색감 구현</li>
+                    <li><strong>Stability:</strong> 장시간 출력에도 노즐 막힘 없는 뛰어난 안정성</li>
+                    <li><strong>Certification:</strong> OEKO-TEX® Eco Passport 인증 (친환경)</li>
+                    <li><strong>Colors:</strong> CMYK + 형광(Fluorescent) 컬러 지원</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-bar" style="position:relative; background-image:url('web_files/company.png'); background-size:cover; background-position:center;">
+        <div style="background:rgba(0,0,0,0.7); position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;"></div>
+        <div style="position:relative; z-index:2;">
+            <h2>Start Your Business</h2>
+            <p style="opacity: 0.8; margin-bottom: 40px;">디지털 프린팅의 모든 솔루션, (주)세잎클로버와 상의하세요.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Address</h4>
+                    <p>경기도 포천시 무림길 14</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <p>031-866-7024</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>chae2787@dtptlc.co.kr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Three Leaved Clover Co., Ltd. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
