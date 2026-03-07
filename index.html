@@ -78,7 +78,7 @@
 
         /* Hero Section */
         .hero {
-            height: 60vh; /* 높이를 100vh -> 60vh 로 줄여서 부담 없게 조정 */
+            height: 60vh; 
             min-height: 450px; 
             display: flex;
             flex-direction: column;
@@ -179,10 +179,11 @@
             color: var(--text-light);
         }
 
+        /* 그리드 조정: 4개 제품이 2열이나 4열로 균형있게 */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -193,7 +194,7 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer; /* 클릭 가능 표시 */
+            cursor: pointer;
         }
 
         .product-item:hover {
@@ -204,7 +205,7 @@
 
         .product-img-box {
             width: 100%;
-            height: 280px;
+            height: 250px; 
             background-color: #f9f9f9;
             display: flex;
             align-items: center;
@@ -225,7 +226,7 @@
         }
 
         .product-info {
-            padding: 30px;
+            padding: 25px;
         }
 
         .product-badge {
@@ -241,14 +242,14 @@
         }
 
         .product-name {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             margin-bottom: 10px;
             color: var(--black);
         }
 
         .product-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-light);
             line-height: 1.6;
             margin-bottom: 20px;
@@ -256,7 +257,7 @@
 
         .specs {
             list-style: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #444;
             background: #f8f8f8;
             padding: 15px;
@@ -280,7 +281,7 @@
         /* Ink Section */
         .ink-section {
             background: #f4f4f4;
-            padding: 50px 5%; /* padding을 80px -> 50px로 줄여서 전체 높이 축소 */
+            padding: 50px 5%;
             margin-top: 50px;
             border-radius: 10px;
             display: flex;
@@ -312,6 +313,12 @@
             padding: 80px 5%;
             text-align: center;
         }
+        
+        /* Contact Item Links */
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
 
         .contact-grid {
             display: flex;
@@ -336,6 +343,27 @@
         .contact-item p {
             font-size: 1.4rem;
             font-weight: 700;
+        }
+        
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+            color: var(--yellow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .location-btn:hover {
+            background: var(--yellow);
+            color: var(--black);
         }
 
         footer {
@@ -395,71 +423,82 @@
         </div>
 
         <div class="gallery">
-            <!-- Product 1: M Series -> 상세페이지 연결 -->
-            <div class="product-item" onclick="location.href='product_m.html'">
+            <!-- 1. M1908 -->
+            <div class="product-item" onclick="location.href='product_m1908.html'">
                 <div class="product-img-box">
-                    <img src="web_files/printer1.png" alt="M Series Printer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
-                        <span>이미지 준비중 (web_files/printer1.png)</span>
-                    </div>
+                    <img src="web_files/printer4.png" alt="M1908">
                 </div>
                 <div class="product-info">
                     <div class="product-badge">Best Seller</div>
-                    <h3 class="product-name">M Series (High Speed)</h3>
+                    <h3 class="product-name">M1908</h3>
                     <p class="product-desc">
-                        15개 헤드 장착 가능! 압도적인 생산성과 안정성을 자랑하는 주력 모델입니다.
-                        10,000m급 점보 롤도 거뜬히 소화합니다.
+                        합리적인 투자로 최고의 생산성을 제공하는 8헤드 모델.<br>
+                        330㎡/h의 빠른 속도와 안정성.
                     </p>
                     <ul class="specs">
-                        <li><strong>Head:</strong> Epson i3200 (Max 15 Heads)</li>
-                        <li><strong>Speed:</strong> 4pass 610㎡/h (15H 기준)</li>
-                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                        <li><strong>Head:</strong> 8 * Epson i3200</li>
+                        <li><strong>Speed:</strong> 330㎡/h (1 PASS)</li>
+                        <li><strong>Width:</strong> 1900mm</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Product 2: G Series -> 상세페이지 연결 -->
-            <div class="product-item" onclick="location.href='product_g.html'">
+            <!-- 2. M1912 -->
+            <div class="product-item" onclick="location.href='product_m1912.html'">
                 <div class="product-img-box">
-                    <img src="web_files/printer2.png" alt="G Series Printer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
-                        <span>이미지 준비중 (web_files/printer2.png)</span>
-                    </div>
+                    <img src="web_files/printer1.png" alt="M1912"> <!-- M시리즈 공통 이미지 -->
                 </div>
                 <div class="product-info">
-                    <div class="product-badge">Mass Production</div>
-                    <h3 class="product-name">G Series (G20/G30)</h3>
+                    <div class="product-badge">Ultra High Speed</div>
+                    <h3 class="product-name">M1912</h3>
                     <p class="product-desc">
-                        20개, 30개 헤드의 극한 생산성! 공장형 대량 생산을 위한 플래그십 모델입니다.
-                        24시간 연속 가동에도 흔들림 없는 내구성을 보장합니다.
+                        12헤드의 강력한 퍼포먼스. <br>
+                        시간당 600㎡의 압도적인 생산 속도를 자랑합니다.
                     </p>
                     <ul class="specs">
-                        <li><strong>Head:</strong> Epson i3200 (20 / 30 Heads)</li>
-                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                        <li><strong>Head:</strong> 12 * Epson i3200</li>
+                        <li><strong>Speed:</strong> 600㎡/h (1 PASS)</li>
+                        <li><strong>Width:</strong> 1900mm</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Product 3: M26 Series (업데이트 완료!) -> 상세페이지 연결 -->
-            <div class="product-item" onclick="location.href='product_itten2687l.html'">
+            <!-- 3. M2608 -->
+            <div class="product-item" onclick="location.href='product_m2608.html'">
                 <div class="product-img-box">
-                    <img src="web_files/printer3.png" alt="M26 Series" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="no-img" style="display:none; height:100%; width:100%; background:#f0f0f0; justify-content:center; align-items:center;">
-                        <span>이미지 준비중 (web_files/printer3.png)</span>
-                    </div>
+                    <img src="web_files/printer3.png" alt="M2608">
                 </div>
                 <div class="product-info">
                     <div class="product-badge">Wide Format</div>
-                    <h3 class="product-name">M26 Series (8/16 Head)</h3>
+                    <h3 class="product-name">M2608</h3>
                     <p class="product-desc">
-                        광폭 전사 솔루션의 새로운 기준. 
-                        고정밀 스틸 빔과 16헤드의 강력한 성능으로 광폭 출력에서도 압도적인 품질을 제공합니다.
+                        2.55m 광폭 전사 솔루션.<br>
+                        홈 텍스타일 및 침구류 생산에 최적화된 고정밀 모델.
                     </p>
                     <ul class="specs">
-                        <li><strong>Head:</strong> Epson i3200 (8 / 16 Heads)</li>
-                        <li><strong>Feature:</strong> 광폭 전사 솔루션</li>
-                        <li><strong>Width:</strong> 2600mm</li>
-                        <li><strong>상세보기:</strong> 클릭하여 사양 확인</li>
+                        <li><strong>Head:</strong> 8 * Epson i3200</li>
+                        <li><strong>Speed:</strong> 320㎡/h (1 PASS)</li>
+                        <li><strong>Width:</strong> 2550mm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 4. G30 -->
+            <div class="product-item" onclick="location.href='product_g30.html'">
+                <div class="product-img-box">
+                    <img src="web_files/printer2.png" alt="G30">
+                </div>
+                <div class="product-info">
+                    <div class="product-badge">Industrial Flagship</div>
+                    <h3 class="product-name">G30</h3>
+                    <p class="product-desc">
+                        30개 헤드의 극한 생산성.<br>
+                        점보롤 출력에 최적화된 공장형 대량생산 플래그십 모델.
+                    </p>
+                    <ul class="specs">
+                        <li><strong>Head:</strong> 30 * Epson i3200</li>
+                        <li><strong>Speed:</strong> 1200㎡/h (1 PASS)</li>
+                        <li><strong>Width:</strong> 1900mm ~ 3200mm</li>
                     </ul>
                 </div>
             </div>
@@ -498,7 +537,11 @@
             <div class="contact-grid">
                 <div class="contact-item">
                     <h4>Address</h4>
-                    <p>경기도 포천시 무림길 14</p>
+                    <p>경기도 포천시 무림길 14 
+                        <a href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8F%AC%EC%B2%9C%EC%8B%9C%20%EB%AC%B4%EB%A6%BC%EA%B8%B8%2014" target="_blank" class="location-btn">
+                            📍 위치 보기
+                        </a>
+                    </p>
                 </div>
                 <div class="contact-item">
                     <h4>Phone</h4>
@@ -509,6 +552,7 @@
                     <p>chae2787@dtptlc.co.kr</p>
                 </div>
             </div>
+
         </div>
     </section>
 
